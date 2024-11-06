@@ -1,0 +1,158 @@
+@use "vars";
+
+// media queries helper
+@mixin xxs-only {
+   @media screen and (max-width: vars.$xs-break - 1) {
+      @content;
+   }
+}
+
+@mixin xs-only {
+   @media screen and (min-width: vars.$xs-break) and (max-width: vars.$sm-break - 1) {
+      @content;
+   }
+}
+
+@mixin xs-down {
+   @media screen and (max-width: vars.$sm-break - 1) {
+      @content;
+   }
+}
+
+@mixin sm-only {
+   @media screen and (min-width: vars.$sm-break) and (max-width: vars.$md-break - 1) {
+      @content;
+   }
+}
+
+@mixin xs-to-sm {
+   @media screen and (min-width: vars.$xs-break) and (max-width: vars.$md-break - 1) {
+      @content;
+   }
+}
+
+@mixin sm-down {
+   @media screen and (max-width: vars.$md-break - 1) {
+      @content;
+   }
+}
+
+@mixin sm-up {
+   @media screen and (min-width: vars.$sm-break) {
+      @content;
+   }
+}
+
+@mixin sm-to-md {
+   @media screen and (min-width: vars.$sm-break) and (max-width: vars.$lg-break - 1) {
+      @content;
+   }
+}
+
+@mixin sm-to-lg {
+   @media screen and (min-width: vars.$sm-break) and (max-width: vars.$xl-break - 1) {
+      @content;
+   }
+}
+
+@mixin sm-to-xl {
+   @media screen and (min-width: vars.$sm-break) and (max-width: vars.$xxl-break - 1) {
+      @content;
+   }
+}
+
+@mixin md-only {
+   @media screen and (min-width: vars.$md-break) and (max-width: vars.$lg-break - 1) {
+      @content;
+   }
+}
+
+@mixin md-up {
+   @media screen and (min-width: vars.$md-break) {
+      @content;
+   }
+}
+
+@mixin md-down {
+   @media screen and (max-width: vars.$lg-break - 1) {
+      @content;
+   }
+}
+
+@mixin md-to-lg {
+   @media screen and (min-width: vars.$md-break) and (max-width: vars.$xl-break - 1) {
+      @content;
+   }
+}
+
+@mixin md-to-xl {
+   @media screen and (min-width: vars.$md-break) and (max-width: vars.$xxl-break - 1) {
+      @content;
+   }
+}
+
+@mixin lg-only {
+   @media screen and (min-width: vars.$lg-break) and (max-width: vars.$xl-break - 1) {
+      @content;
+   }
+}
+
+@mixin lg-up {
+   @media screen and (min-width: vars.$lg-break) {
+      @content;
+   }
+}
+
+@mixin lg-down {
+   @media screen and (max-width: vars.$xl-break - 1) {
+      @content;
+   }
+}
+
+@mixin lg-to-xl {
+   @media screen and (min-width: vars.$lg-break) and (max-width: vars.$xxl-break - 1) {
+      @content;
+   }
+}
+
+@mixin xl-only {
+   @media screen and (min-width: vars.$xl-break) and (max-width: vars.$xxl-break - 1) {
+      @content;
+   }
+}
+
+@mixin xl-up {
+   @media screen and (min-width: vars.$xl-break) {
+      @content;
+   }
+}
+
+@mixin xl-down {
+   @media screen and (max-width: vars.$xxl-break - 1) {
+      @content;
+   }
+}
+
+@mixin xxl-only {
+   @media screen and (min-width: vars.$xxl-break) {
+      @content;
+   }
+}
+
+@mixin breakpoint-up($breakpoint) {
+   @media screen and (min-width: $breakpoint) {
+      @content;
+   }
+}
+
+@mixin breakpoint-down($breakpoint) {
+   @media screen and (max-width: $breakpoint) {
+      @content;
+   }
+}
+
+@mixin breakpoint-between($min-breakpoint, $max-breakpoint) {
+   @media screen and (min-width: $min-breakpoint) and (max-width: $max-breakpoint) {
+      @content;
+   }
+}

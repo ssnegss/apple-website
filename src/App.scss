@@ -1,6 +1,13 @@
+@use "src/styles/helpers/_media.scss";
+@use "src/styles/helpers/_functions.scss";
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+
+  @include media.lg-up {
+    font-size: functions.rem(32);
+  }
 }
