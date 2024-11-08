@@ -7,7 +7,7 @@ const MenuBtn: FC<MenuBtnProps> = ({
 }: MenuBtnProps): ReactNode => {
    return (
       <button
-         className={`menuBtn ${isActive && "menuBtn--active"}`}
+         className={`menuBtn ${isActive ? "menuBtn--active" : ""}`}
          onClick={onClick}
       >
          <span></span>

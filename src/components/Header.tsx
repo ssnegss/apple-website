@@ -28,9 +28,13 @@ const Navbar: FC = (): ReactNode => {
    return (
       <header className="header container">
          <i className="icon-apple header__icon header__apple"></i>
-         <nav className={`header__nav ${navIsActive && "header__nav--active"}`}>
+         <nav
+            className={`header__nav ${navIsActive ? "header__nav--active" : ""}`}
+         >
             {navItems.map((navItem: NavItem, index) => (
-               <div className="header__navItem" key={index}>{navItem.title}</div>
+               <div className="header__navItem" key={index}>
+                  {navItem.title}
+               </div>
             ))}
          </nav>
          <i className="icon-search header__icon"></i>
