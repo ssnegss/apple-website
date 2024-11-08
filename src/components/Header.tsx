@@ -26,15 +26,15 @@ const Navbar: FC = (): ReactNode => {
    };
 
    return (
-      <header className="header">
-         <i className="icon-apple"></i>
+      <header className="header container">
+         <i className="icon-apple header__icon header__apple"></i>
          <nav className={`header__nav ${navIsActive && "header__nav--active"}`}>
             {navItems.map((navItem: NavItem, index) => (
-               <div key={index}>{navItem.title}</div>
+               <div className="header__navItem" key={index}>{navItem.title}</div>
             ))}
          </nav>
-         <i className="icon-search"></i>
-         <img src={bagImg} alt="bag" />
+         <i className="icon-search header__icon"></i>
+         <img src={bagImg} alt="bag" className="header__icon-img" />
          <MenuBtn onClick={openMobileMenu} isActive={navIsActive} />
       </header>
    );

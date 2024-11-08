@@ -2,11 +2,26 @@
 @use "src/styles/helpers/functions";
 
 body {
+   margin: 0;
    font-size: functions.rem(16);
+   background-color: $c-grey100;
    font-family: $f-base;
 }
 
 .main {
-   background-color: $c-grey100;
    color: $c-grey00;
+}
+
+.container {
+   max-width: $w-container;
+   padding-inline: $pi-container-xs;
+   margin-inline: auto;
+
+   @include media.md-up {
+      padding-inline: $pi-container-md;
+   }
+
+   &--lg {
+      max-width: calc($w-container + 150px);
+   }
 }
