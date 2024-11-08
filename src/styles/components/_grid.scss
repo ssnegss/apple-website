@@ -2,8 +2,10 @@
 @use "src/styles/helpers/functions";
 
 body {
-    font-size: functions.rem(16);
-    font-family: var(--f-base);
-  }
+   font-size: functions.rem(16);
+   font-family: $f-base;
+}
 
-  
+.main {
+   background-color: $c-grey100;
+}

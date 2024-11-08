@@ -1,0 +1,56 @@
+//fonts
+$f-fontello: "Fontello", sans-serif;
+$f-rubik: "Rubik", sans-serif;
+$f-montserrat: "Montserrat", sans-serif;
+
+$f-base: $f-rubik;
+$f-headings: $f-montserrat;
+$f-icons: $f-fontello;
+
+//colors
+$c-primary: #e62a2b;
+$c-secondary-extra-light: #fff7ec;
+$c-secondary-light: #fff0dc;
+$c-secondary: #fda924;
+$c-secondary-dark: #d8d1c7;
+$c-secondary-extra-dark: #a89b8a;
+
+$c-grey00: #fff;
+$c-grey05: #fafafa;
+$c-grey10: #f7f7f7;
+$c-grey20: #ebebeb;
+$c-grey30: #d6d6d6;
+$c-grey40: #c2c2c2;
+$c-grey50: #adadad;
+$c-grey60: #868686;
+$c-grey70: #707070;
+$c-grey80: #5c5c5c;
+$c-grey90: #222222;
+$c-grey100: #000;
+
+//border-radius
+$b-radius-xs: 6px;
+$b-radius-sm: 8px;
+$b-radius-md: 10px;
+$b-radius: 15px;
+$b-radius-lg: 20px;
+$b-radius-round: 50px;
+
+//container
+$pi-container-xs: 20px;
+$pi-container-md: 40px;
+$pi-container-lg: 60px;
+
+//z-indexes
+$z-bottom: 10;
+$z-middle-bottom: 100;
+$z-middle: 150;
+$z-middle-top: 200;
+$z-top: 5000;
+$z-top-10: 300;
+$z-top-20: 400;
+$z-top-30: 500;
+
+//container
+$w-container: 1440px;
+$w-auth-form: 360px;
