@@ -2,9 +2,11 @@ import { FC } from "react"
 
 const Hero: FC = () => {
   return (
-    <div>
-      Hero
-    </div>
+    <section className="container">
+      <div>
+        <h2>iPhone 15 Pro</h2>
+      </div>
+    </section>
   )
 }
 
