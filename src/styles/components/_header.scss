@@ -16,21 +16,17 @@
 
    @include media.md-down {
       flex-direction: column;
-      justify-content: unset;
-      align-items: unset;
-      gap: 20px;
+      gap: 30px;
       font-size: functions.rem(16);
       line-height: functions.rem(20);
       position: fixed;
-      right: var(--pi-container-xs);
-      left: var(--pi-container-xs);
-      border-radius: var(--b-radius-lg);
-      box-shadow: 0 0 20px 0 var(--c-white);
-      top: 0;
-      margin-top: var(--h-header-sm);
-      min-height: calc(100vh - var(--h-header-sm) - 10px);
-      background: var(--c-white);
-      max-height: max-content;
+      right: $pi-container-xs;
+      left: $pi-container-xs;
+      border-radius: $b-radius-lg;
+      box-shadow: 0 0 5px 0 $c-grey00;
+      top: $h-header-sm;
+      bottom: 20px;
+      background: $c-grey100;
       transition:
          translate 0.5s ease-in,
          opacity 0s linear 0.5s;
@@ -39,8 +35,8 @@
    }
 
    @include media.md-only {
-      margin-top: var(--h-header-md);
-      min-height: calc(100vh - var(--h-header-md) - 10px);
+      margin-top: $h-header-md;
+      min-height: calc(100vh - $h-header-md - 10px);
    }
 
    @include media.lg-up {
