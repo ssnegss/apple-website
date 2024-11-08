@@ -1,0 +1,9 @@
+@use "src/styles/helpers/media";
+@use "src/styles/helpers/functions";
+
+body {
+    font-size: functions.rem(16);
+    font-family: var(--f-base);
+  }
+
+  
