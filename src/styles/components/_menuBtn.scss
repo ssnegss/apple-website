@@ -1,0 +1,50 @@
+@use "src/styles/helpers/media";
+@use "src/styles/helpers/functions";
+
+.menuBtn {
+   display: flex;
+   position: relative;
+   align-items: center;
+   justify-content: center;
+   width: 42px;
+   height: 42px;
+   cursor: pointer;
+   background-color: transparent;
+
+   @include media.lg-up {
+      display: none;
+   }
+
+   span {
+      position: absolute;
+      background-color: $c-grey00;
+      border-radius: $b-radius;
+      width: 26px;
+      height: 3px;
+      transition: all 0.35s ease-in-out;
+
+      &:nth-child(1) {
+         transform: translateY(-8px);
+      }
+
+      &:nth-child(3) {
+         transform: translateY(8px);
+      }
+   }
+
+   &--active {
+      span {
+         &:nth-child(1) {
+            transform: rotate(45deg);
+         }
+
+         &:nth-child(2) {
+            opacity: 0;
+         }
+
+         &:nth-child(3) {
+            transform: rotate(-45deg);
+         }
+      }
+   }
+}
