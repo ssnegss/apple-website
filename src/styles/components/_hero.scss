@@ -1,0 +1,18 @@
+@use "src/styles/helpers/media";
+@use "src/styles/helpers/functions";
+
+.hero__title {
+   opacity: 0;
+   text-align: center;
+   font-size: functions.rem(42);
+   transition: opacity 2s ease-in;
+}
+
+.hero__video {
+   width: 100%;
+   pointer-events: none;
+
+   video {
+      width: 100%;
+   }
+}
