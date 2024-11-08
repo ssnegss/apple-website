@@ -2,11 +2,11 @@
 @use "vars";
 
 @function rem($pixels, $context: vars.$main-font-size) {
-   @if (unitless($pixels)) {
+   @if (math.is-unitless($pixels)) {
       $pixels: $pixels * 1px;
    }
 
-   @if (unitless($context)) {
+   @if (math.is-unitless($context)) {
       $context: $context * 1rem;
    }
 
