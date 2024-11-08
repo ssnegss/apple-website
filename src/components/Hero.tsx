@@ -27,19 +27,24 @@ const Hero: FC = () => {
 
    useGSAP(() => {
       gsap.to("#hero__title", { opacity: 1 });
+      gsap.to("#hero__cta", { opacity: 1, y: -50 });
    }, []);
 
    return (
       <section className="container hero">
-         <div>
-            <h2 id="hero__title" className="hero__title">
-               iPhone 15 Pro
-            </h2>
-            <div className="hero__video">
-               <video autoPlay muted playsInline={true} key={videoSrc}>
-                  <source src={videoSrc} type="video/mp4" />
-               </video>
-            </div>
+         <h2 id="hero__title" className="hero__title">
+            iPhone 15 Pro
+         </h2>
+         <div className="hero__video">
+            <video autoPlay muted playsInline={true} key={videoSrc}>
+               <source src={videoSrc} type="video/mp4" />
+            </video>
+         </div>
+         <div id="hero__cta" className="hero__cta">
+            <a href="#highlights" className="btn btn--primary hero__ctaBtn">
+               Buy
+            </a>
+            <p className="hero__ctaText">From $199/month of $999</p>
          </div>
       </section>
    );

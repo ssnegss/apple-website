@@ -1,3 +1,5 @@
+@use "src/styles/helpers/functions";
+
 //fonts
 $f-fontello: "Fontello", sans-serif;
 $f-rubik: "Rubik", sans-serif;
@@ -8,10 +10,10 @@ $f-headings: $f-montserrat;
 $f-icons: $f-fontello;
 
 //colors
-$c-primary: #e62a2b;
+$c-primary: #78a7ff;
 $c-secondary-extra-light: #fff7ec;
 $c-secondary-light: #fff0dc;
-$c-secondary: #fda924;
+$c-secondary: #2f5185;
 $c-secondary-dark: #d8d1c7;
 $c-secondary-extra-dark: #a89b8a;
 
@@ -58,3 +60,10 @@ $w-auth-form: 360px;
 //header
 $h-header-sm: 62px;
 $h-header-md: 72px;
+
+//btns settings
+$btn-b-radius: $b-radius-sm;
+$btn-f-size: functions.rem(16);
+$btn-f-size-sm: functions.rem(14);
+$btn-padding: 10px 20px;
+$btn-padding-sm: 6px 12px;

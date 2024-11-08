@@ -1,0 +1,37 @@
+@use "src/styles/helpers/media";
+@use "src/styles/helpers/functions";
+
+.btn {
+   display: inline-block;
+   font-family: $f-base;
+   transition: all 0.25s ease-out;
+   font-family: $f-base;
+   border-radius: $b-radius-round;
+   border: 1px solid transparent;
+   padding: $btn-padding;
+   font-size: $btn-f-size;
+   cursor: pointer;
+
+   &--sm {
+      padding: $btn-padding-sm;
+      font-size: $btn-f-size-sm;
+   }
+
+   &--primary {
+      color: $c-grey00;
+      background: $c-primary;
+
+      &:hover {
+         background: $c-secondary;
+      }
+   }
+
+   &--secondary {
+      color: $c-grey00;
+      background: $c-secondary;
+
+      &:hover {
+         background: $c-primary;
+      }
+   }
+}

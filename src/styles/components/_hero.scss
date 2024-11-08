@@ -16,3 +16,31 @@
       width: 100%;
    }
 }
+
+.hero__cta {
+   opacity: 0;
+   text-align: center;
+   font-size: functions.rem(42);
+   transform: translate(0, 20px);
+   transition: all 0.5s ease-in;
+}
+
+.hero__ctaBtn {
+   min-width: 100px;
+}
+
+.hero__ctaText {
+   font-size: functions.rem(18);
+
+   @include media.md-up {
+      font-size: functions.rem(20);
+   }
+
+   @include media.lg-up {
+      font-size: functions.rem(24);
+   }
+
+   @include media.xl-up {
+      font-size: functions.rem(28);
+   }
+}
