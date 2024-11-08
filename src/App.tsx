@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import Navbar from './components/Navbar'
+import Navbar from './components/Header'
 import Hero from './components/Hero'
 import Highlights from './components/Highlights'
 
