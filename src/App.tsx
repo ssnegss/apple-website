@@ -1,6 +1,4 @@
-import './App.scss'
-
-function App() {
+const App = () => {
 
   return (
     <>
