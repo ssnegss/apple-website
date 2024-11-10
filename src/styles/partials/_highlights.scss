@@ -1,6 +1,10 @@
 @use "src/styles/helpers/media";
 @use "src/styles/helpers/functions";
 
+.highlights {
+   background-color: $c-grey90;
+}
+
 .highlights__title-block {
    @include media.lg-up {
       display: flex;

@@ -1,0 +1,37 @@
+@use "src/styles/helpers/media";
+@use "src/styles/helpers/functions";
+
+.videoCarousel__slides {
+   display: flex;
+   align-items: center;
+   gap: 30px;
+   overflow-x: scroll;
+
+   &::-webkit-scrollbar {
+      display: none;
+   }
+}
+
+.videoCarousel__slide {
+   position: relative;
+   display: flex;
+   align-items: center;
+   min-width: calc(100vw - $pi-container-xs * 2);
+   aspect-ratio: 1;
+   overflow: hidden;
+   background: $c-grey100;
+   border-radius: $b-radius;
+}
+
+.videoCarousel__slideVideo {
+   video {
+      height: 100%;
+      width: 100%;
+   }
+}
+
+.videoCarousel__slideText {
+   position: absolute;
+   top: 0;
+   left: 0;
+}

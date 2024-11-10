@@ -2,6 +2,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { FC } from "react";
 import { rightImg, watchImg } from "../utils";
+import VideoCarousel from "./VideoCarousel";
 
 const Highlights: FC = () => {
    useGSAP(() => {
@@ -31,6 +32,7 @@ const Highlights: FC = () => {
                </div>
             </div>
          </div>
+         <VideoCarousel />
       </section>
    );
 };
