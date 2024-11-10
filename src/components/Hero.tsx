@@ -27,12 +27,12 @@ const Hero: FC = () => {
 
    useGSAP(() => {
       gsap.to("#hero__title", { opacity: 1 });
-      gsap.to("#hero__cta", { opacity: 1, y: -50 });
+      gsap.to("#hero__cta", { opacity: 1, y: 0 });
    }, []);
 
    return (
       <section className="container hero">
-         <h2 id="hero__title" className="hero__title">
+         <h2 id="hero__title" className="h2 hero__title">
             iPhone 15 Pro
          </h2>
          <div className="hero__video">
