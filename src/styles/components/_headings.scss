@@ -19,6 +19,7 @@
 
 .h2 {
    font-size: functions.rem(36);
+   color: $c-grey70;
 
    @include media.md-up {
       font-size: functions.rem(40);
