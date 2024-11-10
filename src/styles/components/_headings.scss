@@ -1,0 +1,41 @@
+@use "src/styles/helpers/media";
+@use "src/styles/helpers/functions";
+
+.h1 {
+   font-size: functions.rem(32);
+
+   @include media.md-up {
+      font-size: functions.rem(40);
+   }
+
+   @include media.lg-up {
+      font-size: functions.rem(64);
+   }
+
+   @include media.xl-up {
+      font-size: functions.rem(73);
+   }
+}
+
+.h2 {
+   font-size: functions.rem(36);
+
+   @include media.md-up {
+      font-size: functions.rem(40);
+   }
+
+   @include media.lg-up {
+      font-size: functions.rem(48);
+   }
+}
+
+.h3 {
+   font-size: functions.rem(28);
+   line-height: 1.25;
+   font-weight: 400;
+   margin-bottom: 20px;
+
+   @include media.lg-up {
+      font-size: functions.rem(36);
+   }
+}
