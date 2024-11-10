@@ -1,2 +1,7 @@
 @use "src/styles/helpers/media";
 @use "src/styles/helpers/functions";
+
+.highlights__title {
+   opacity: 0;
+   transition: opacity 1s ease-in;
+}
