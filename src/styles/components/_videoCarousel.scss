@@ -35,3 +35,49 @@
    top: 0;
    left: 0;
 }
+
+.videoCarousel__bulletsBlock {
+   position: relative;
+   display: flex;
+   justify-content: center;
+   margin-top: 30px;
+}
+
+.videoCarousel__bullets {
+   padding: 16px 30px;
+   background-color: $c-grey80;
+   border-radius: $b-radius-round;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   gap: 10px;
+}
+
+.videoCarousel__bullet {
+   position: relative;
+   height: 10px;
+   width: 10px;
+   background-color: $c-grey50;
+   border-radius: $b-radius-round;
+   cursor: pointer;
+}
+
+.videoCarousel__bulletInner {
+   position: absolute;
+   inset: 0;
+}
+
+.videoCarousel__controlBtn {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 50px;
+   aspect-ratio: 1;
+   background-color: $c-grey80;
+   border-radius: $b-radius-round;
+   border: unset;
+
+   img {
+      height: 20px;
+   }
+}
