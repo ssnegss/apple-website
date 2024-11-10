@@ -1,11 +1,15 @@
-import { FC } from "react"
+import { FC } from "react";
 
 const Highlights: FC = () => {
-  return (
-    <div>
-      Highlights
-    </div>
-  )
-}
+   return (
+      <section id="highlights" className="container highlights">
+         <div>
+          <div>
+            <h2>Get the highlights</h2>
+          </div>
+         </div>
+      </section>
+   );
+};
 
-export default Highlights
+export default Highlights;
