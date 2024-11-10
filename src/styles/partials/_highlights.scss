@@ -1,7 +1,34 @@
 @use "src/styles/helpers/media";
 @use "src/styles/helpers/functions";
 
+.highlights__title-block {
+   @include media.lg-up {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+   }
+}
+
 .highlights__title {
    opacity: 0;
    transition: opacity 1s ease-in;
+}
+
+.highlights__watchBtns {
+   display: flex;
+   flex-direction: row;
+   gap: 30px;
+}
+
+.highlights__watchBtn {
+   display: flex;
+   flex-direction: row;
+   gap: 7px;
+   white-space: nowrap;
+   color: $c-link;
+
+   img {
+      max-height: 18px;
+   }
 }
