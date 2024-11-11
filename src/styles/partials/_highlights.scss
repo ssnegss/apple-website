@@ -3,6 +3,21 @@
 
 .highlights {
    background-color: $c-grey90;
+   margin-block: 0;
+
+  padding-block: 40px;
+
+   @include media.md-up {
+      padding-block: 50px;
+   }
+
+   @include media.lg-up {
+      padding-block: 60px;
+   }
+
+   @include media.xl-up {
+      padding-block: 80px;
+   }
 }
 
 .highlights__title-block {
