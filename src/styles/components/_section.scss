@@ -1,0 +1,18 @@
+@use "src/styles/helpers/media";
+@use "src/styles/helpers/functions";
+
+.section {
+   padding-block: 30px;
+
+   @include media.md-up {
+      padding-block: 40px;
+   }
+
+   @include media.lg-up {
+      padding-block: 60px;
+   }
+
+   @include media.xl-up {
+      padding-block: 80px;
+   }
+}

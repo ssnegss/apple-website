@@ -16,23 +16,25 @@ const Highlights: FC = () => {
    }, []);
 
    return (
-      <section id="highlights" className="highlights">
-         <div className="highlights__title-block container">
-            <h2 className="h2 highlights__title" id="highlights__title">
-               Get the highlights.
-            </h2>
-            <div className="highlights__watchBtns">
-               <div className="highlights__watchBtn">
-                  Watch the film
-                  <img src={watchImg} alt="watch" />
-               </div>
-               <div className="highlights__watchBtn">
-                  Watch the event
-                  <img src={rightImg} alt="right" />
+      <section id="highlights" className="highlights section">
+         <div className="container">
+            <div className="highlights__title-block">
+               <h2 className="h2 highlights__title" id="highlights__title">
+                  Get the highlights.
+               </h2>
+               <div className="highlights__watchBtns">
+                  <div className="highlights__watchBtn">
+                     Watch the film
+                     <img src={watchImg} alt="watch" />
+                  </div>
+                  <div className="highlights__watchBtn">
+                     Watch the event
+                     <img src={rightImg} alt="right" />
+                  </div>
                </div>
             </div>
+            <VideoCarousel />
          </div>
-         <VideoCarousel />
       </section>
    );
 };

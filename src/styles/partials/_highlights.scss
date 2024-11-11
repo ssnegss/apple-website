@@ -6,17 +6,25 @@
 }
 
 .highlights__title-block {
+   margin-bottom: 40px;
+
    @include media.lg-up {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 60px;
    }
 }
 
 .highlights__title {
    opacity: 0;
    transition: opacity 0.1s ease-in;
+   margin-bottom: 20px;
+
+   @include media.lg-up {
+      margin-bottom: 0;
+   }
 }
 
 .highlights__watchBtns {

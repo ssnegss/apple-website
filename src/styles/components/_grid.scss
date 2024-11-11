@@ -21,6 +21,10 @@ body {
       padding-inline: $pi-container-md;
    }
 
+   @include media.lg-up {
+      padding-inline: $pi-container-lg;
+   }
+
    &--lg {
       max-width: calc($w-container + 150px);
    }

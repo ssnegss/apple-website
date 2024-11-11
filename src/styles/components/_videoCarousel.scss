@@ -1,13 +1,27 @@
 @use "src/styles/helpers/media";
 @use "src/styles/helpers/functions";
 
+$slideWidthLg: 900px;
+$slideWidthXl: 1000px;
+
 .videoCarousel__slides {
    display: flex;
    align-items: center;
    overflow-x: scroll;
+   margin-inline: calc($pi-container-xs * -1);
+
+   @include media.md-up {
+      margin-inline: calc($pi-container-md * -1);
+   }
+
+   @include media.lg-up {
+      margin-inline: calc($pi-container-lg * -1);
+      padding-inline: calc((100% - $slideWidthLg) / 2);
+   }
 
    @include media.xl-up {
-      padding-left: 20vw;
+      margin-inline: calc((100vw - $w-container - 18px) / -2);
+      padding-inline: calc((100vw - $slideWidthXl) / 2);
    }
 
    &::-webkit-scrollbar {
@@ -18,6 +32,7 @@
 .videoCarousel__slide {
    min-width: calc(100% - ($pi-container-xs * 2));
    padding-inline: $pi-container-xs;
+   pointer-events: none;
 
    @include media.md-up {
       min-width: calc(100% - ($pi-container-md * 2));
@@ -25,12 +40,16 @@
    }
 
    @include media.lg-up {
-      min-width: 800px;
-      padding-inline: $pi-container-md;
+      min-width: $slideWidthLg;
+      padding-inline: 40px;
    }
 
    @include media.xl-up {
-      min-width: 1200px;
+      min-width: $slideWidthXl;
+
+      &:first-child {
+         padding-left: 0;
+      }
    }
 }
 
@@ -54,6 +73,10 @@
    @include media.xl-up {
       aspect-ratio: 1.7;
    }
+}
+
+.videoCarousel__slideVideoInner {
+   position: relative;
 
    video {
       height: 100%;
@@ -63,8 +86,25 @@
 
 .videoCarousel__slideText {
    position: absolute;
-   top: 0;
-   left: 0;
+   top: 10px;
+   left: 30px;
+   font-size: functions.rem(16);
+   line-height: 1.4;
+
+   @include media.md-up {
+      font-size: functions.rem(20);
+      line-height: 1.4;
+   }
+
+   @include media.lg-up {
+      font-size: functions.rem(22);
+      line-height: 1.4;
+   }
+
+   @include media.xl-up {
+      font-size: functions.rem(24);
+      line-height: 1.4;
+   }
 }
 
 .videoCarousel__bulletsBlock {
@@ -72,6 +112,7 @@
    display: flex;
    justify-content: center;
    margin-top: 30px;
+   gap: 20px;
 }
 
 .videoCarousel__bullets {
@@ -91,7 +132,6 @@
    width: 10px;
    background-color: $c-grey50;
    border-radius: $b-radius-round;
-   cursor: pointer;
 }
 
 .videoCarousel__bulletInner {
@@ -108,6 +148,12 @@
    background-color: $c-grey80;
    border-radius: $b-radius-round;
    border: unset;
+   cursor: pointer;
+   transition: all 0.1s ease;
+
+   &:hover {
+      background-color: $c-grey70;
+   }
 
    img {
       height: 20px;

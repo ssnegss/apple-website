@@ -177,33 +177,37 @@ const VideoCarousel = () => {
                (slide: HighlightSlide, slideIndex: number) => (
                   <div key={slide.id} className="videoCarousel__slide">
                      <div className="videoCarousel__slideVideo">
-                        <video
-                           playsInline={true}
-                           preload="auto"
-                           muted
-                           id="video"
-                           onEnded={() =>
-                              slideIndex === 3
-                                 ? handleProcess("video-last")
-                                 : handleProcess("video-end", slideIndex)
-                           }
-                           ref={(el) => (videoRef.current[slideIndex] = el)}
-                           onPlay={() => {
-                              setVideo((prevVideo) => ({
-                                 ...prevVideo,
-                                 isPlaying: true,
-                              }));
-                           }}
-                           onLoadedMetadata={(e) =>
-                              handleLoadedMetadata(slideIndex, e)
-                           }
-                        >
-                           <source src={slide.video} type="video/mp4" />
-                        </video>
-                        <div className="videoCarousel__slideText">
-                           {slide.textLists.map((slideText, slideTextindex) => (
-                              <div key={slideTextindex}>{slideText}</div>
-                           ))}
+                        <div className="videoCarousel__slideVideoInner">
+                           <video
+                              playsInline={true}
+                              preload="auto"
+                              muted
+                              id="video"
+                              onEnded={() =>
+                                 slideIndex === 3
+                                    ? handleProcess("video-last")
+                                    : handleProcess("video-end", slideIndex)
+                              }
+                              ref={(el) => (videoRef.current[slideIndex] = el)}
+                              onPlay={() => {
+                                 setVideo((prevVideo) => ({
+                                    ...prevVideo,
+                                    isPlaying: true,
+                                 }));
+                              }}
+                              onLoadedMetadata={(e) =>
+                                 handleLoadedMetadata(slideIndex, e)
+                              }
+                           >
+                              <source src={slide.video} type="video/mp4" />
+                           </video>
+                           <div className="videoCarousel__slideText">
+                              {slide.textLists.map(
+                                 (slideText, slideTextindex) => (
+                                    <div key={slideTextindex}>{slideText}</div>
+                                 )
+                              )}
+                           </div>
                         </div>
                      </div>
                   </div>
