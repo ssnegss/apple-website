@@ -1,7 +1,7 @@
 const ModelView = () => {
   return (
     <div>
-      
+      model
     </div>
   )
 }
