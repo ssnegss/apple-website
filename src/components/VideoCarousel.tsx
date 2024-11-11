@@ -150,6 +150,13 @@ const VideoCarousel = () => {
             }));
             break;
 
+         case "pause":
+            setVideo((prevVideo) => ({
+               ...prevVideo,
+               isPlaying: !isPlaying,
+            }));
+            break;
+
          default:
             return video;
       }
@@ -168,10 +175,7 @@ const VideoCarousel = () => {
          <div className="videoCarousel__slides">
             {highlightsSlides.map(
                (slide: HighlightSlide, slideIndex: number) => (
-                  <div
-                     key={slide.id}
-                     className="videoCarousel__slide"
-                  >
+                  <div key={slide.id} className="videoCarousel__slide">
                      <div className="videoCarousel__slideVideo">
                         <video
                            playsInline={true}
@@ -196,11 +200,11 @@ const VideoCarousel = () => {
                         >
                            <source src={slide.video} type="video/mp4" />
                         </video>
-                     </div>
-                     <div className="videoCarousel__slideText">
-                        {slide.textLists.map((slideText, slideTextindex) => (
-                           <div key={slideTextindex}>{slideText}</div>
-                        ))}
+                        <div className="videoCarousel__slideText">
+                           {slide.textLists.map((slideText, slideTextindex) => (
+                              <div key={slideTextindex}>{slideText}</div>
+                           ))}
+                        </div>
                      </div>
                   </div>
                )

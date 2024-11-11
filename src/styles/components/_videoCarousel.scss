@@ -4,8 +4,11 @@
 .videoCarousel__slides {
    display: flex;
    align-items: center;
-   gap: 30px;
    overflow-x: scroll;
+
+   @include media.xl-up {
+      padding-left: 20vw;
+   }
 
    &::-webkit-scrollbar {
       display: none;
@@ -13,17 +16,45 @@
 }
 
 .videoCarousel__slide {
-   position: relative;
-   display: flex;
-   align-items: center;
-   min-width: calc(100vw - $pi-container-xs * 2);
-   aspect-ratio: 1;
-   overflow: hidden;
-   background: $c-grey100;
-   border-radius: $b-radius;
+   min-width: calc(100% - ($pi-container-xs * 2));
+   padding-inline: $pi-container-xs;
+
+   @include media.md-up {
+      min-width: calc(100% - ($pi-container-md * 2));
+      padding-inline: $pi-container-md;
+   }
+
+   @include media.lg-up {
+      min-width: 800px;
+      padding-inline: $pi-container-md;
+   }
+
+   @include media.xl-up {
+      min-width: 1200px;
+   }
 }
 
 .videoCarousel__slideVideo {
+   display: flex;
+   align-items: center;
+   position: relative;
+   overflow: hidden;
+   aspect-ratio: 1;
+   background: $c-grey100;
+   border-radius: $b-radius;
+
+   @include media.md-up {
+      aspect-ratio: 1.7;
+   }
+
+   @include media.lg-up {
+      aspect-ratio: 2;
+   }
+
+   @include media.xl-up {
+      aspect-ratio: 1.7;
+   }
+
    video {
       height: 100%;
       width: 100%;

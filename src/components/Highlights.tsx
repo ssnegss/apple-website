@@ -16,8 +16,8 @@ const Highlights: FC = () => {
    }, []);
 
    return (
-      <section id="highlights" className="container highlights">
-         <div className="highlights__title-block">
+      <section id="highlights" className="highlights">
+         <div className="highlights__title-block container">
             <h2 className="h2 highlights__title" id="highlights__title">
                Get the highlights.
             </h2>
