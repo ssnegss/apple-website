@@ -5,6 +5,9 @@ import ModelView from "./ModelView";
 import { useState, useRef } from "react";
 import { PhoneModelSize } from "../types/PhoneModelSize";
 import { yellowImg } from "../utils";
+import { Canvas } from "@react-three/fiber";
+import { View } from "@react-three/drei";
+import { models } from "../constants";
 
 const Model = () => {
    const [size, setSize] = useState<PhoneModelSize>("small");
@@ -60,6 +63,29 @@ const Model = () => {
                      item={model}
                      size={size}
                   />
+                  <Canvas
+                     className="model__canvas"
+                     eventSource={
+                        document.getElementById("root") as HTMLElement
+                     }
+                  >
+                     <View.Port />
+                  </Canvas>
+               </div>
+               <div className="model__data">
+                  <div className="model__name">{model.title}</div>
+                  <div className="model__colorsBlock">
+                     <ul className="model__colorsList">
+                        {models.map((model, i) => (
+                           <li
+                              key={i}
+                              className="model__colorOption"
+                              style={{ backgroundColor: model.color[0] }}
+                              onClick={() => setModel(model)}
+                           />
+                        ))}
+                     </ul>
+                  </div>
                </div>
             </div>
          </div>
