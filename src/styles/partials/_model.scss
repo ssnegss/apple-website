@@ -63,6 +63,7 @@
    border-radius: $b-radius-round;
    cursor: pointer;
    border: 3px solid transparent;
+   transition: all .1s ease-in;
 }
 
 .model__sizes {
@@ -86,4 +87,5 @@
    justify-content: center;
    border-radius: $b-radius-round;
    cursor: pointer;
+   transition: all .1s ease-in;
 }
