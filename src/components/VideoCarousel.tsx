@@ -24,6 +24,12 @@ const VideoCarousel = () => {
    const { isEnd, startPlay, videoId, isLastVideo, isPlaying } = video;
 
    useGSAP(() => {
+      gsap.to(".videoCarousel__slide", {
+         transform: `translateX(${-100 * videoId}%)`,
+         duration: 1,
+         ease: "power2.io",
+      });
+
       gsap.to("#video", {
          scrollTrigger: {
             trigger: "#video",
@@ -99,7 +105,7 @@ const VideoCarousel = () => {
 
          const animationUpdate = () => {
             animation.progress(
-               videoRef.current[videoId] /
+               videoRef.current[videoId].currentTime /
                   highlightsSlides[videoId].videoDuration
             );
          };
@@ -164,7 +170,6 @@ const VideoCarousel = () => {
                (slide: HighlightSlide, slideIndex: number) => (
                   <div
                      key={slide.id}
-                     id="video"
                      className="videoCarousel__slide"
                   >
                      <div className="videoCarousel__slideVideo">
@@ -172,6 +177,7 @@ const VideoCarousel = () => {
                            playsInline={true}
                            preload="auto"
                            muted
+                           id="video"
                            onEnded={() =>
                               slideIndex === 3
                                  ? handleProcess("video-last")
