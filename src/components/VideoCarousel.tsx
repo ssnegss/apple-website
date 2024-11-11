@@ -1,15 +1,18 @@
-import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SyntheticEvent, useEffect, useRef, useState } from "react";
 import { highlightsSlides } from "../constants";
 import { HighlightSlide } from "../types/HighlightSlide";
-import gsap from "gsap";
 import { pauseImg, playImg, replayImg } from "../utils";
 import { useGSAP } from "@gsap/react";
 import { LG_BREAK, MD_BREAK } from "../constants/media";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const VideoCarousel = () => {
-   const videoRef = useRef([]);
-   const videoSpanRef = useRef([]);
-   const videoDivRef = useRef([]);
+   const videoRef = useRef<Array<HTMLVideoElement>>([]);
+   const videoSpanRef = useRef<Array<HTMLSpanElement>>([]);
+   const videoDivRef = useRef<Array<HTMLDivElement>>([]);
 
    const [video, setVideo] = useState({
       isEnd: false,
@@ -19,7 +22,9 @@ const VideoCarousel = () => {
       isPlaying: false,
    });
 
-   const [loadedData, setLoadedData] = useState([]);
+   const [loadedData, setLoadedData] = useState<
+      Array<SyntheticEvent<HTMLVideoElement>>
+   >([]);
 
    const { isEnd, startPlay, videoId, isLastVideo, isPlaying } = video;
 
@@ -49,21 +54,25 @@ const VideoCarousel = () => {
       if (loadedData.length > 3) {
          if (!isPlaying) {
             videoRef.current[videoId].pause();
-         } else {
-            startPlay && videoRef.current[videoId].play();
+         } else if (startPlay) {
+            videoRef.current[videoId].play();
          }
       }
    }, [startPlay, videoId, isPlaying, loadedData]);
 
-   const handleLoadedMetadata = (i, e) =>
+   const handleLoadedMetadata = (
+      i: number,
+      e: SyntheticEvent<HTMLVideoElement>
+   ) => {
       setLoadedData((prevVideo) => [...prevVideo, e]);
+   };
 
    useEffect(() => {
       let currentProgress = 0;
-      let span = videoSpanRef.current;
+      const span = videoSpanRef.current;
 
       if (span[videoId]) {
-         let animation = gsap.to(span[videoId], {
+         const animation = gsap.to(span[videoId], {
             onUpdate: () => {
                const progress = Math.ceil(animation.progress() * 100);
 
@@ -118,16 +127,17 @@ const VideoCarousel = () => {
       }
    }, [videoId, startPlay]);
 
-   const handleProcess = (type, i?) => {
+   const handleProcess = (type: string, i?: number) => {
       switch (type) {
          case "video-end":
-            setVideo((prevVideo) => ({
-               ...prevVideo,
-               isEnd: true,
-               videoId: i + 1,
-            }));
+            if (i !== null && i !== undefined) {
+               setVideo((prevVideo) => ({
+                  ...prevVideo,
+                  isEnd: true,
+                  videoId: i + 1,
+               }));
+            }
             break;
-
          case "video-last":
             setVideo((prevVideo) => ({
                ...prevVideo,
@@ -188,16 +198,18 @@ const VideoCarousel = () => {
                                     ? handleProcess("video-last")
                                     : handleProcess("video-end", slideIndex)
                               }
-                              ref={(el) => (videoRef.current[slideIndex] = el)}
+                              ref={(el: HTMLVideoElement) =>
+                                 (videoRef.current[slideIndex] = el)
+                              }
                               onPlay={() => {
                                  setVideo((prevVideo) => ({
                                     ...prevVideo,
                                     isPlaying: true,
                                  }));
                               }}
-                              onLoadedMetadata={(e) =>
-                                 handleLoadedMetadata(slideIndex, e)
-                              }
+                              onLoadedMetadata={(
+                                 e: SyntheticEvent<HTMLVideoElement>
+                              ) => handleLoadedMetadata(slideIndex, e)}
                            >
                               <source src={slide.video} type="video/mp4" />
                            </video>
@@ -217,16 +229,20 @@ const VideoCarousel = () => {
          <div className="videoCarousel__bulletsBlock">
             <div className="videoCarousel__bullets">
                {videoRef.current.map((_, spanIndex) => (
-                  <span
+                  <div
                      key={spanIndex}
-                     ref={(el) => (videoDivRef.current[spanIndex] = el)}
+                     ref={(el: HTMLDivElement) =>
+                        (videoDivRef.current[spanIndex] = el)
+                     }
                      className="videoCarousel__bullet"
                   >
                      <span
                         className="videoCarousel__bulletInner"
-                        ref={(el) => (videoSpanRef.current[spanIndex] = el)}
+                        ref={(el: HTMLSpanElement) =>
+                           (videoSpanRef.current[spanIndex] = el)
+                        }
                      />
-                  </span>
+                  </div>
                ))}
             </div>
             <button
