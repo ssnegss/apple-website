@@ -3,7 +3,7 @@ export interface ModelView {
    groupRef: string;
    gsapType: string;
    controlRef: string;
-   setRotationState: string;
+   setRotationState: () => void;
    item: string;
    size: string;
 }
