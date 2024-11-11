@@ -1,4 +1,5 @@
 import { HighlightSlide } from "../types/HighlightSlide";
+import { PhoneModel, PhoneModelSize } from "../types/PhoneModel";
 import {
    blackImg,
    blueImg,
@@ -47,7 +48,7 @@ export const highlightsSlides: HighlightSlide[] = [
    },
 ];
 
-export const models = [
+export const models: PhoneModel[] = [
    {
       id: 1,
       title: "iPhone 15 Pro in Natural Titanium",
@@ -74,7 +75,7 @@ export const models = [
    },
 ];
 
-export const sizes = [
+export const sizes: PhoneModelSize[] = [
    { label: '6.1"', value: "small" },
    { label: '6.7"', value: "large" },
 ];

@@ -44,22 +44,46 @@
    display: flex;
    align-items: center;
    justify-items: center;
-   border-radius: $b-radius-round;
-   background-color: $c-grey90;
-   margin-inline: auto;
-   padding: 15px 30px;
-   width: max-content;
 }
 
 .model__colorsList {
    display: flex;
-   flex-direction: row;
+   align-items: center;
+   justify-items: center;
+   border-radius: $b-radius-round;
+   background-color: $c-grey90;
+   margin-inline: auto;
+   padding: 10px 30px;
    gap: 15px;
 }
 
 .model__colorOption {
    width: 25px;
    aspect-ratio: 1;
+   border-radius: $b-radius-round;
+   cursor: pointer;
+   border: 3px solid transparent;
+}
+
+.model__sizes {
+   border: unset;
+   display: flex;
+   align-items: center;
+   justify-items: center;
+   border-radius: $b-radius-round;
+   background-color: $c-grey90;
+   margin-inline: auto;
+}
+
+.model__size {
+   color: $c-grey00;
+   line-height: 1;
+   height: 48px;
+   font-size: functions.rem(16);
+   aspect-ratio: 1;
+   display: flex;
+   align-items: center;
+   justify-content: center;
    border-radius: $b-radius-round;
    cursor: pointer;
 }

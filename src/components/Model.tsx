@@ -1,16 +1,16 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import * as THREE from "three";
+import { PhoneModelSizeValue } from "../types/PhoneModel";
 import ModelView from "./ModelView";
 import { useState, useRef } from "react";
-import { PhoneModelSize } from "../types/PhoneModelSize";
 import { yellowImg } from "../utils";
 import { Canvas } from "@react-three/fiber";
 import { View } from "@react-three/drei";
-import { models } from "../constants";
+import { models, sizes } from "../constants";
 
 const Model = () => {
-   const [size, setSize] = useState<PhoneModelSize>("small");
+   const [size, setSize] = useState<PhoneModelSizeValue>("small");
    const [model, setModel] = useState({
       title: "Iphone 15 Pro in Natural Titanium",
       color: ["#8F8A81", "#FFE7B9", "#6F6C64"],
@@ -76,15 +76,39 @@ const Model = () => {
                   <div className="model__name">{model.title}</div>
                   <div className="model__colorsBlock">
                      <ul className="model__colorsList">
-                        {models.map((model, i) => (
+                        {models.map((modelOption, i) => (
                            <li
                               key={i}
                               className="model__colorOption"
-                              style={{ backgroundColor: model.color[0] }}
-                              onClick={() => setModel(model)}
+                              style={{
+                                 backgroundColor: modelOption.color[0],
+                                 borderColor:
+                                    model === modelOption
+                                       ? "white"
+                                       : "transparent",
+                              }}
+                              onClick={() => setModel(modelOption)}
                            />
                         ))}
                      </ul>
+                     <button className="model__sizes">
+                        {sizes.map(({ label, value }) => (
+                           <span
+                              className="model__size"
+                              key={label}
+                              onClick={() => {
+                                 setSize(value);
+                              }}
+                              style={{
+                                 backgroundColor:
+                                    size === value ? "white" : "transparent",
+                                 color: size === value ? "black" : "white",
+                              }}
+                           >
+                              {label}
+                           </span>
+                        ))}
+                     </button>
                   </div>
                </div>
             </div>
