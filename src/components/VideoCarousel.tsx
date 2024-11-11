@@ -4,6 +4,7 @@ import { HighlightSlide } from "../types/HighlightSlide";
 import gsap from "gsap";
 import { pauseImg, playImg, replayImg } from "../utils";
 import { useGSAP } from "@gsap/react";
+import { LG_BREAK, MD_BREAK } from "../constants/media";
 
 const VideoCarousel = () => {
    const videoRef = useRef([]);
@@ -52,19 +53,66 @@ const VideoCarousel = () => {
       setLoadedData((prevVideo) => [...prevVideo, e]);
 
    useEffect(() => {
-      const currentProgress = 0;
+      let currentProgress = 0;
       let span = videoSpanRef.current;
 
       if (span[videoId]) {
          let animation = gsap.to(span[videoId], {
-            onUpdate: () => {},
+            onUpdate: () => {
+               const progress = Math.ceil(animation.progress() * 100);
 
-            onComplete: () => {},
+               if (progress != currentProgress) {
+                  currentProgress = progress;
+               }
+
+               gsap.to(videoDivRef.current[videoId], {
+                  width:
+                     window.innerWidth < MD_BREAK
+                        ? "10vw"
+                        : window.innerWidth < LG_BREAK
+                        ? "10vw"
+                        : "4vw",
+               });
+
+               gsap.to(span[videoId], {
+                  width: `${currentProgress}`,
+                  backgroundColor: "white",
+               });
+            },
+
+            onComplete: () => {
+               if (isPlaying) {
+                  gsap.to(videoDivRef.current[videoId], {
+                     width: "10px",
+                  });
+
+                  gsap.to(span[videoId], {
+                     backgroundColor: "#616161",
+                  });
+               }
+            },
          });
+
+         if (videoId === 0) {
+            animation.restart();
+         }
+
+         const animationUpdate = () => {
+            animation.progress(
+               videoRef.current[videoId] /
+                  highlightsSlides[videoId].videoDuration
+            );
+         };
+
+         if (isPlaying) {
+            gsap.ticker.add(animationUpdate);
+         } else {
+            gsap.ticker.remove(animationUpdate);
+         }
       }
    }, [videoId, startPlay]);
 
-   const handleProcess = (type, i) => {
+   const handleProcess = (type, i?) => {
       switch (type) {
          case "video-end":
             setVideo((prevVideo) => ({
@@ -116,7 +164,7 @@ const VideoCarousel = () => {
                (slide: HighlightSlide, slideIndex: number) => (
                   <div
                      key={slide.id}
-                     id='video'
+                     id="video"
                      className="videoCarousel__slide"
                   >
                      <div className="videoCarousel__slideVideo">
@@ -124,6 +172,11 @@ const VideoCarousel = () => {
                            playsInline={true}
                            preload="auto"
                            muted
+                           onEnded={() =>
+                              slideIndex === 3
+                                 ? handleProcess("video-last")
+                                 : handleProcess("video-end", slideIndex)
+                           }
                            ref={(el) => (videoRef.current[slideIndex] = el)}
                            onPlay={() => {
                               setVideo((prevVideo) => ({
