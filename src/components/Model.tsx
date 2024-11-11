@@ -1,8 +1,12 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ModelView from "./ModelView";
+import { useState } from "react";
+import { PhoneModelSize } from "../types/PhoneModelSize";
 
 const Model = () => {
+   const [size, setSize] = useState<PhoneModelSize>("small");
+
    useGSAP(() => {
       gsap.to("#model__title", {
          y: 0,
