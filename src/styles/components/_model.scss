@@ -1,0 +1,27 @@
+@use "src/styles/helpers/media";
+@use "src/styles/helpers/functions";
+
+.model {
+}
+
+.model__title {
+   opacity: 0;
+}
+
+.model__container {
+   display: flex;
+   flex-direction: column;
+   justify-items: center;
+   margin-top: 5px;
+}
+
+.model__inner {
+   position: relative;
+   width: 100%;
+   height: 75vh;
+   overflow: hidden;
+
+   @include media.lg-up {
+      height: 90vh;
+   }
+}
