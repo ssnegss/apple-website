@@ -17,3 +17,10 @@ export type ModelItem = {
    color: string[];
    img: string;
 };
+
+
+export type ModelProps = {
+   scale: Array<number>
+   item: ModelItem
+   size: string
+}
