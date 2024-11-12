@@ -1,13 +1,29 @@
 import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { animateWithGsap } from "../utils/animations";
 import { explore1Img, explore2Img, exploreVideo } from "../utils";
 import { useRef } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Features = () => {
    const videoRef = useRef<HTMLVideoElement>();
 
    useGSAP(() => {
-      animateWithGsap("#features__title", { opacity: 1, y: 0, duration: 2 });
+      gsap.to("#exploreVideo", {
+         scrollTrigger: {
+            trigger: "#exploreVideo",
+            toggleActions: "play pause reverse restart",
+            start: "-10% bottom",
+         },
+         onComplete: () => {
+            videoRef.current.play();
+         },
+      });
+
+      animateWithGsap("#features__title", { opacity: 1, y: 0, duration: 1 });
+      animateWithGsap("#features__galleryText", { opacity: 1, duration: 3 });
       animateWithGsap(
          ".features__img",
          { scale: 1, opacity: 1, ease: "power1", duration: 1 },
@@ -28,11 +44,11 @@ const Features = () => {
                Explore the full story.
             </h2>
             <div className="features__gallery">
-               <div className="features__galleryText">
+               <div className="features__galleryText" id="features__galleryText">
                   <div>iPhone.</div>
                   <div>Forged in titanium.</div>
                </div>
-               <div className="features__galleryItem">
+               <div className="features__galleryVideoBlock">
                   <video
                      playsInline
                      ref={videoRef}
