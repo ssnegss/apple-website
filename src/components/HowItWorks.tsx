@@ -1,6 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { chipImg } from "../utils";
+import { chipImg, frameImg, frameVideo } from "../utils";
 
 const HowItWorks = () => {
    useGSAP(() => {
@@ -29,6 +29,16 @@ const HowItWorks = () => {
             </div>
             <div className="howItWorks__subtitle">
                It's here. The biggest redesign in the history of Apple GPUs.
+            </div>
+            <div className="howItWorks__videoFrameBlock">
+               <div className="howItWorks__videoFrame">
+                  <img src={frameImg} alt="frame" />
+                  <div className="howItWorks__video">
+                     <video>
+                        <source src={frameVideo} type="video/mp4" />
+                     </video>
+                  </div>
+               </div>
             </div>
          </div>
       </section>

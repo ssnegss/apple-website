@@ -48,3 +48,36 @@
    text-align: center;
    color: $c-grey40;
 }
+
+.howItWorks__videoFrameBlock {
+   overflow: hidden;
+}
+
+.howItWorks__videoFrame {
+   position: relative;
+
+   img {
+      width: 100%;
+      height: 100%;
+   }
+}
+
+.howItWorks__video {
+   position: absolute;
+   overflow: hidden;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: calc(100% - 50px);
+   height: calc(100% - 50px);
+   margin-inline: auto;
+   margin-block: auto;
+   border-radius: $b-radius-lg;
+   inset: 0;
+   z-index: -1;
+
+   video {
+      width: 100%;
+      height: 100%;
+   }
+}
