@@ -18,10 +18,11 @@ const HowItWorks = () => {
 
    return (
       <section className="section howItWorks">
-         \
          <div className="container">
-            <div id="chip" className="howItWorks__chip">
-               <img src={chipImg} alt="chip" />
+            <div className="howItWorks__chipWrapper">
+               <div id="chip" className="howItWorks__chip">
+                  <img src={chipImg} alt="chip" />
+               </div>
             </div>
             <div className="howItWorks__title">
                A17 Pro chip. <br /> A monster win for gaming.

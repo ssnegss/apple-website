@@ -1,12 +1,18 @@
 @use "src/styles/helpers/media";
 @use "src/styles/helpers/functions";
 
+.howItWorks__chipWrapper {
+   margin-top: -60px;
+   padding-block: 60px;
+   overflow: hidden;
+}
+
 .howItWorks__chip {
    width: 100%;
    display: flex;
    align-items: center;
    justify-content: center;
-   margin-bottom: 60px;
+   overflow: hidden;
 
    img {
       height: 180px;
