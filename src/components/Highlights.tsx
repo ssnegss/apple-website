@@ -16,7 +16,7 @@ const Highlights: FC = () => {
    }, []);
 
    return (
-      <section id="highlights" className="highlights section">
+      <section id="highlights" className="highlights section section--gray">
          <div className="container">
             <div className="highlights__title-block">
                <h2 className="h2 highlights__title" id="highlights__title">

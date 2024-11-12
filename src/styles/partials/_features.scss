@@ -5,11 +5,17 @@
    opacity: 0;
 }
 
+.features__gallery {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+
 .features__galleryText {
    max-width: 200px;
    font-size: functions.rem(40);
    font-weight: 600;
-   padding-block: 100px;
+   padding-block: 80px;
    margin-inline: auto;
 }
 
@@ -24,4 +30,12 @@
    width: 100%;
    height: 100%;
    object-fit: cover;
+}
+
+.features__galleryItem {
+   img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+   }
 }
