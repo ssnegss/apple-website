@@ -2,17 +2,17 @@
 @use "src/styles/helpers/functions";
 
 .section {
-   margin-block: 40px;
+   margin-block: 60px;
 
    @include media.md-up {
-      margin-block: 50px;
+      margin-block: 80px;
    }
 
    @include media.lg-up {
-      margin-block: 60px;
+      margin-block: 100px;
    }
 
    @include media.xl-up {
-      margin-block: 80px;
+      margin-block: 120px;
    }
 }

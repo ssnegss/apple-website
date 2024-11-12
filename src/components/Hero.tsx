@@ -31,20 +31,22 @@ const Hero: FC = () => {
    }, []);
 
    return (
-      <section className="container section hero">
-         <h1 id="hero__title" className="h1 hero__title">
-            iPhone 15 Pro
-         </h1>
-         <div className="hero__video">
-            <video autoPlay muted playsInline={true} key={videoSrc}>
-               <source src={videoSrc} type="video/mp4" />
-            </video>
-         </div>
-         <div id="hero__cta" className="hero__cta">
-            <a href="#highlights" className="btn btn--primary hero__ctaBtn">
-               Buy
-            </a>
-            <p className="hero__ctaText">From $199/month of $999</p>
+      <section className="section hero">
+         <div className="container">
+            <h1 id="hero__title" className="h1 hero__title">
+               iPhone 15 Pro
+            </h1>
+            <div className="hero__video">
+               <video autoPlay muted playsInline={true} key={videoSrc}>
+                  <source src={videoSrc} type="video/mp4" />
+               </video>
+            </div>
+            <div id="hero__cta" className="hero__cta">
+               <a href="#highlights" className="btn btn--primary hero__ctaBtn">
+                  Buy
+               </a>
+               <p className="hero__ctaText">From $199/month of $999</p>
+            </div>
          </div>
       </section>
    );
