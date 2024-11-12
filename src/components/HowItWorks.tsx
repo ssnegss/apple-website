@@ -18,8 +18,17 @@ const HowItWorks = () => {
 
    return (
       <section className="section howItWorks">
-         <div id="chip" className="howItWorks__chip">
-            <img src={chipImg} alt="chip" />
+         \
+         <div className="container">
+            <div id="chip" className="howItWorks__chip">
+               <img src={chipImg} alt="chip" />
+            </div>
+            <div className="howItWorks__title">
+               A17 Pro chip. <br /> A monster win for gaming.
+            </div>
+            <div className="howItWorks__subtitle">
+               It's here. The biggest redesign in the history of Apple GPUs.
+            </div>
          </div>
       </section>
    );
