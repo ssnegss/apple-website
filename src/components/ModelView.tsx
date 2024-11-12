@@ -9,6 +9,7 @@ import { ModelView as ModelViewType } from "../types/ModelView";
 import { FC, Suspense } from "react";
 import Lights from "./Lights";
 import IPhone from "./IPhone";
+import Loader from "./Loader";
 
 const ModelView: FC<ModelViewType> = ({
    index,
@@ -47,9 +48,7 @@ const ModelView: FC<ModelViewType> = ({
          >
             <Suspense
                fallback={
-                  <Html>
-                     <div>Loading</div>
-                  </Html>
+                  <Loader/>
                }
             >
                <IPhone

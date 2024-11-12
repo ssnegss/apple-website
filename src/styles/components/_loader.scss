@@ -1,0 +1,9 @@
+@use "src/styles/helpers/media";
+@use "src/styles/helpers/functions";
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
