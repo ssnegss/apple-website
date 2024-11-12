@@ -1,15 +1,6 @@
 @use "src/styles/helpers/media";
 @use "src/styles/helpers/functions";
 
-.h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-   margin: 0;
-}
-
 .h1 {
    font-size: functions.rem(32);
    color: $c-grey40;
@@ -29,7 +20,7 @@ h6 {
 
 .h2 {
    font-size: functions.rem(36);
-   color: $c-grey70;
+   color: $c-grey50;
 
    @include media.md-up {
       font-size: functions.rem(40);
