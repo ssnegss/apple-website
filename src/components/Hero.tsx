@@ -31,10 +31,10 @@ const Hero: FC = () => {
    }, []);
 
    return (
-      <section className="container hero">
-         <h2 id="hero__title" className="h2 hero__title">
+      <section className="container section hero">
+         <h1 id="hero__title" className="h1 hero__title">
             iPhone 15 Pro
-         </h2>
+         </h1>
          <div className="hero__video">
             <video autoPlay muted playsInline={true} key={videoSrc}>
                <source src={videoSrc} type="video/mp4" />

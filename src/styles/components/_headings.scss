@@ -12,6 +12,7 @@ h6 {
 
 .h1 {
    font-size: functions.rem(32);
+   color: $c-grey40;
 
    @include media.md-up {
       font-size: functions.rem(40);
