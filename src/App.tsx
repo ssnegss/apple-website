@@ -1,4 +1,5 @@
 import { FC } from "react";
+import * as Sentry from "@sentry/react";
 import Navbar from "./components/Header";
 import Hero from "./components/Hero";
 import Highlights from "./components/Highlights";
@@ -15,4 +16,4 @@ const App: FC = () => {
    );
 };
 
-export default App;
+export default Sentry.withProfiler(App);

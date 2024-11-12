@@ -1,7 +1,7 @@
 @use "src/styles/helpers/media";
 @use "src/styles/helpers/functions";
 
-$slideWidthLg: 900px;
+$slideWidthLg: 800px;
 $slideWidthXl: 1000px;
 
 .videoCarousel__slides {
@@ -41,7 +41,7 @@ $slideWidthXl: 1000px;
 
    @include media.lg-up {
       min-width: $slideWidthLg;
-      padding-inline: 40px;
+      padding-inline: 20px;
    }
 
    @include media.xl-up {
