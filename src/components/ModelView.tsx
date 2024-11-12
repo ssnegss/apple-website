@@ -1,9 +1,4 @@
-import {
-   Html,
-   OrbitControls,
-   PerspectiveCamera,
-   View,
-} from "@react-three/drei";
+import { OrbitControls, PerspectiveCamera, View } from "@react-three/drei";
 import * as THREE from "three";
 import { ModelView as ModelViewType } from "../types/ModelView";
 import { FC, Suspense } from "react";
@@ -27,7 +22,7 @@ const ModelView: FC<ModelViewType> = ({
          className="model3d"
          style={{ right: index === 2 ? "-100%" : 0 }}
       >
-         <ambientLight intensity={0.3} />
+         <ambientLight intensity={0.2} />
          <PerspectiveCamera makeDefault position={[0, 0, 4]} />
          <Lights />
          <OrbitControls
@@ -38,6 +33,7 @@ const ModelView: FC<ModelViewType> = ({
             rotateSpeed={0.4}
             target={new THREE.Vector3(0, 0, 0)}
             onEnd={() =>
+               controlRef.current &&
                setRotationState(controlRef.current.getAzimuthalAngle())
             }
          />
@@ -46,11 +42,7 @@ const ModelView: FC<ModelViewType> = ({
             name={`${index === 1} ? 'small' : 'large`}
             position={[0, 0, 0]}
          >
-            <Suspense
-               fallback={
-                  <Loader/>
-               }
-            >
+            <Suspense fallback={<Loader />}>
                <IPhone
                   scale={index === 1 ? [15, 15, 15] : [17, 17, 17]}
                   item={item}

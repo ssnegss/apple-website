@@ -1,8 +1,10 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import * as THREE from "three";
+import type { OrbitControls } from 'three-stdlib'
 import { animateWithGsapTimeline } from "../utils/animations";
 import { PhoneModelSizeValue } from "../types/PhoneModel";
+import { ModelItem } from "../types/ModelView";
 import ModelView from "./ModelView";
 import { useState, useRef, useEffect } from "react";
 import { yellowImg } from "../utils";
@@ -12,15 +14,15 @@ import { models, sizes } from "../constants";
 
 const Model = () => {
    const [size, setSize] = useState<PhoneModelSizeValue>("small");
-   const [model, setModel] = useState({
+   const [model, setModel] = useState<ModelItem>({
       title: "Iphone 15 Pro in Natural Titanium",
       color: ["#8F8A81", "#FFE7B9", "#6F6C64"],
       img: yellowImg,
    });
 
    // camera control for the model view
-   const cameraControlSmall = useRef();
-   const cameraControlLarge = useRef();
+   const cameraControlSmall = useRef<OrbitControls | null>(null);
+   const cameraControlLarge = useRef<OrbitControls | null>(null);
 
    // models
    const small = useRef(new THREE.Group());
@@ -33,20 +35,20 @@ const Model = () => {
    const tl = gsap.timeline();
 
    useEffect(() => {
-      if(size === 'large') {
-        animateWithGsapTimeline(tl, small, smallRotation, '#view1', '#view2', {
-          transform: 'translateX(-100%)',
-          duration: 2
-        })
+      if (size === "large") {
+         animateWithGsapTimeline(tl, small, smallRotation, "#view1", "#view2", {
+            transform: "translateX(-100%)",
+            duration: 2,
+         });
       }
-  
-      if(size ==='small') {
-        animateWithGsapTimeline(tl, large, largeRotation, '#view2', '#view1', {
-          transform: 'translateX(0)',
-          duration: 2
-        })
+
+      if (size === "small") {
+         animateWithGsapTimeline(tl, large, largeRotation, "#view2", "#view1", {
+            transform: "translateX(0)",
+            duration: 2,
+         });
       }
-    }, [size])
+   }, [size]);
 
    useGSAP(() => {
       gsap.to("#model__title", {
@@ -84,7 +86,8 @@ const Model = () => {
                   />
                   <Canvas
                      className="model__canvas"
-                     eventSource={document.getElementById('root') as HTMLElement
+                     eventSource={
+                        document.getElementById("root") as HTMLElement
                      }
                   >
                      <View.Port />

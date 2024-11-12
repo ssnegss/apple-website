@@ -21,10 +21,6 @@
    width: 100%;
    overflow: hidden;
    margin-bottom: 30px;
-
-   @include media.lg-up {
-      height: 90vh;
-   }
 }
 
 .model__canvas {
@@ -44,7 +40,8 @@
 .model__colorsBlock {
    display: flex;
    align-items: center;
-   justify-items: center;
+   justify-content: center;
+   gap: 10px;
 }
 
 .model__colorsList {
@@ -53,7 +50,6 @@
    justify-items: center;
    border-radius: $b-radius-round;
    background-color: $c-grey90;
-   margin-inline: auto;
    padding: 10px 30px;
    gap: 15px;
 }
@@ -74,7 +70,6 @@
    justify-items: center;
    border-radius: $b-radius-round;
    background-color: $c-grey90;
-   margin-inline: auto;
 }
 
 .model__size {
