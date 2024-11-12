@@ -10,9 +10,15 @@ const Features = () => {
       animateWithGsap("#features__title", { opacity: 1, y: 0, duration: 2 });
       animateWithGsap(
          ".features__img",
-         { scale: 1, opacity: 1, ease: "power1", duration: 2 },
+         { scale: 1, opacity: 1, ease: "power1", duration: 1 },
          { scrub: 5.5 }
       );
+      animateWithGsap(".features__textBlock", {
+         y: 0,
+         opacity: 1,
+         ease: "power2.inOut",
+         duration: 1,
+      });
    }, []);
 
    return (
@@ -52,6 +58,21 @@ const Features = () => {
                      alt="Explore"
                      className="features__img"
                   />
+               </div>
+            </div>
+            <div className="features__text">
+               <div className="features__textBlock">
+                  iPhone 15 Pro is{" "}
+                  <span>
+                     the first iPhone to feature an aerospace-grade titanium
+                     design,
+                  </span>{" "}
+                  using the same alloy that spacecraft use for missions to Mars.
+               </div>
+               <div className="features__textBlock">
+                  Titanium has one of the best strength-to-weight ratios of any
+                  metal, making these our <span>lightest Pro models ever.</span>{" "}
+                  You'll notice the difference the moment you pick one up.
                </div>
             </div>
          </div>
