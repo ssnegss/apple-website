@@ -1,8 +1,14 @@
-import { Html, PerspectiveCamera, View } from "@react-three/drei";
+import {
+   Html,
+   OrbitControls,
+   PerspectiveCamera,
+   View,
+} from "@react-three/drei";
+import * as THREE from "three";
 import { ModelView as ModelViewType } from "../types/ModelView";
 import { FC, Suspense } from "react";
 import Lights from "./Lights";
-import  IPhone  from "./IPhone";
+import IPhone from "./IPhone";
 
 const ModelView: FC<ModelViewType> = ({
    index,
@@ -14,18 +20,31 @@ const ModelView: FC<ModelViewType> = ({
    size,
 }: ModelViewType) => {
    return (
-      <>
-         hello
-         <View
-            index={index}
-            id={gsapType}
-            className="model3d"
-            style={{ right: index === 2 ? "-100%" : 0 }}
+      <View
+         index={index}
+         id={gsapType}
+         className="model3d"
+         style={{ right: index === 2 ? "-100%" : 0 }}
+      >
+         <ambientLight intensity={0.3} />
+         <PerspectiveCamera makeDefault position={[0, 0, 4]} />
+         <Lights />
+         <OrbitControls
+            makeDefault
+            ref={controlRef}
+            enableZoom={false}
+            enablePan={false}
+            rotateSpeed={0.4}
+            target={new THREE.Vector3(0, 0, 0)}
+            onEnd={() =>
+               setRotationState(controlRef.current.getAzimuthalAngle())
+            }
+         />
+         <group
+            ref={groupRef}
+            name={`${index === 1} ? 'small' : 'large`}
+            position={[0, 0, 0]}
          >
-            {/* Ambient Light */}
-            <ambientLight intensity={0.3} />
-            <PerspectiveCamera makeDefault position={[0, 0, 4]} />
-            <Lights />
             <Suspense
                fallback={
                   <Html>
@@ -33,10 +52,14 @@ const ModelView: FC<ModelViewType> = ({
                   </Html>
                }
             >
-               {/* <IPhone /> */}
+               <IPhone
+                  scale={index === 1 ? [15, 15, 15] : [17, 17, 17]}
+                  item={item}
+                  size={size}
+               />
             </Suspense>
-         </View>
-      </>
+         </group>
+      </View>
    );
 };
 

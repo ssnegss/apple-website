@@ -17,7 +17,8 @@
 
 .model__inner {
    position: relative;
-   height: 75vh;
+   height: 500px;
+   width: 100%;
    overflow: hidden;
    margin-bottom: 30px;
 
@@ -28,6 +29,8 @@
 
 .model__canvas {
    position: fixed;
+   height: 100%;
+   width: 100%;
    inset: 0;
    overflow: hidden;
 }

@@ -1,9 +1,10 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import * as THREE from "three";
+import { animateWithGsapTimeline } from "../utils/animations";
 import { PhoneModelSizeValue } from "../types/PhoneModel";
 import ModelView from "./ModelView";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { yellowImg } from "../utils";
 import { Canvas } from "@react-three/fiber";
 import { View } from "@react-three/drei";
@@ -28,6 +29,24 @@ const Model = () => {
    //rotation
    const [smallRotation, setSmallRotation] = useState<number>(0);
    const [largeRotation, setLargeRotation] = useState<number>(0);
+
+   const tl = gsap.timeline();
+
+   useEffect(() => {
+      if(size === 'large') {
+        animateWithGsapTimeline(tl, small, smallRotation, '#view1', '#view2', {
+          transform: 'translateX(-100%)',
+          duration: 2
+        })
+      }
+  
+      if(size ==='small') {
+        animateWithGsapTimeline(tl, large, largeRotation, '#view2', '#view1', {
+          transform: 'translateX(0)',
+          duration: 2
+        })
+      }
+    }, [size])
 
    useGSAP(() => {
       gsap.to("#model__title", {
@@ -65,8 +84,7 @@ const Model = () => {
                   />
                   <Canvas
                      className="model__canvas"
-                     eventSource={
-                        document.getElementById("root") as HTMLElement
+                     eventSource={document.getElementById('root') as HTMLElement
                      }
                   >
                      <View.Port />

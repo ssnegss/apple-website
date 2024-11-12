@@ -3,6 +3,13 @@
 
 .model3d {
    height: 100%;
-   position: relative;
-   border: 1px solid red;
+   width: 100%;
+   position: absolute;
+   inset: 0;
+   height: 500px;
+
+   &:nth-child(2) {
+      right: -100%;
+      left: unset;
+   }
 }
