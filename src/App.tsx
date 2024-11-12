@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import Highlights from "./components/Highlights";
 import Model from "./components/Model";
 import Features from "./components/Features";
+import HowItWorks from "./components/HowItWorks";
 
 const App: FC = () => {
    return (
@@ -14,6 +15,7 @@ const App: FC = () => {
          <Highlights />
          <Model />
          <Features />
+         <HowItWorks />
       </main>
    );
 };
