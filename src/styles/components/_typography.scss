@@ -1,0 +1,16 @@
+@use "src/styles/helpers/media";
+@use "src/styles/helpers/functions";
+
+.text {
+    font-size: functions.rem(16);
+    color: $c-grey40;
+    line-height: 1.4;
+ 
+    &:not(:last-child) {
+       margin-bottom: 30px;
+    }
+ 
+    span {
+       color: $c-grey20;
+    }
+}

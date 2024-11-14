@@ -29,7 +29,7 @@ const Features = () => {
          { scale: 1, opacity: 1, ease: "power1", duration: 1 },
          { scrub: 5.5 }
       );
-      animateWithGsap(".features__textBlock", {
+      animateWithGsap(".features__text", {
          y: 0,
          opacity: 1,
          ease: "power2.inOut",
@@ -77,7 +77,7 @@ const Features = () => {
                </div>
             </div>
             <div className="features__text">
-               <div className="features__textBlock">
+               <div className="text">
                   iPhone 15 Pro is{" "}
                   <span>
                      the first iPhone to feature an aerospace-grade titanium
@@ -85,7 +85,7 @@ const Features = () => {
                   </span>{" "}
                   using the same alloy that spacecraft use for missions to Mars.
                </div>
-               <div className="features__textBlock">
+               <div className="text">
                   Titanium has one of the best strength-to-weight ratios of any
                   metal, making these our <span>lightest Pro models ever.</span>{" "}
                   You'll notice the difference the moment you pick one up.
