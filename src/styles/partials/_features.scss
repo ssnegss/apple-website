@@ -76,26 +76,13 @@
 }
 
 .features__text {
+   opacity: 0;
+   translate: 0 20px;
+   
     @include media.lg-up {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 50px;
         padding-inline: 30px;
     }
-}
-
-.features__textBlock {
-   font-size: functions.rem(16);
-   color: $c-grey40;
-   line-height: 1.4;
-   opacity: 0;
-   translate: 0 20px;
-
-   &:not(:last-child) {
-      margin-bottom: 30px;
-   }
-
-   span {
-      color: $c-grey20;
-   }
 }
