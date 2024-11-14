@@ -20,7 +20,7 @@ $slideWidthXl: 1000px;
    }
 
    @include media.xl-up {
-      margin-inline: calc((100vw - $w-container - 18px) / -2);
+      margin-inline: calc((100vw - $w-container) / -2);
       padding-inline: calc((100vw - $slideWidthXl) / 2);
    }
 
