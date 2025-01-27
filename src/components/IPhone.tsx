@@ -38,7 +38,7 @@ const Model: FC<ModelProps> = (props: ModelProps) => {
    }, [materials, props.item]);
 
    return (
-      <group {...props} dispose={null} scale={[0.01, 0.01, 0.01]}>
+      <group {...props} dispose={null} scale={[20, 20, 10]}>
          <mesh
             castShadow
             receiveShadow
