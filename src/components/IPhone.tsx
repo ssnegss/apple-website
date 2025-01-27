@@ -7,7 +7,7 @@ Title: Apple iPhone 15 Pro Max Black
 */
 
 import * as THREE from "three";
-import React, { FC, useEffect } from "react";
+import { FC, useEffect } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
 import { ModelProps } from "../types/ModelView";
 
@@ -38,7 +38,7 @@ const Model: FC<ModelProps> = (props: ModelProps) => {
    }, [materials, props.item]);
 
    return (
-      <group {...props} dispose={null}>
+      <group {...props} dispose={null} scale={[0.01, 0.01, 0.01]}>
          <mesh
             castShadow
             receiveShadow

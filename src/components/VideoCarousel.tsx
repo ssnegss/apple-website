@@ -61,7 +61,6 @@ const VideoCarousel = () => {
    }, [startPlay, videoId, isPlaying, loadedData]);
 
    const handleLoadedMetadata = (
-      i: number,
       e: SyntheticEvent<HTMLVideoElement>
    ) => {
       setLoadedData((prevVideo) => [...prevVideo, e]);
@@ -209,7 +208,7 @@ const VideoCarousel = () => {
                               }}
                               onLoadedMetadata={(
                                  e: SyntheticEvent<HTMLVideoElement>
-                              ) => handleLoadedMetadata(slideIndex, e)}
+                              ) => handleLoadedMetadata(e)}
                            >
                               <source src={slide.video} type="video/mp4" />
                            </video>

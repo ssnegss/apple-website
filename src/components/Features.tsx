@@ -8,7 +8,7 @@ import { useRef } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
 const Features = () => {
-   const videoRef = useRef<HTMLVideoElement>();
+   const videoRef = useRef<HTMLVideoElement>(null);
 
    useGSAP(() => {
       gsap.to("#exploreVideo", {
@@ -18,7 +18,7 @@ const Features = () => {
             start: "-10% bottom",
          },
          onComplete: () => {
-            videoRef.current.play();
+            videoRef.current!.play();
          },
       });
 
